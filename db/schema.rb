@@ -13,6 +13,8 @@
 ActiveRecord::Schema[7.1].define(version: 2024_07_25_194902) do
   create_table "job_groups", force: :cascade do |t|
     t.integer "rate"
+    t.string "name"
+    t.string "primary_key"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
