@@ -1,0 +1,5 @@
+/tmp/
+/test/tmp/
+/test/version_tmp/
+*.gem
+.byebug_history
