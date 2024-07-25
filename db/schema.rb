@@ -10,11 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_25_194902) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_25_195928) do
+  create_table "employees", force: :cascade do |t|
+    t.integer "job_group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["id"], name: "index_employees_on_id", unique: true
+    t.index ["job_group_id"], name: "index_employees_on_job_group_id"
+  end
+
   create_table "job_groups", force: :cascade do |t|
     t.integer "rate"
     t.string "name"
-    t.string "primary_key"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
