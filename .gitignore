@@ -3,3 +3,4 @@
 /test/version_tmp/
 *.gem
 .byebug_history
+/log/
