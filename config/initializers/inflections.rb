@@ -11,6 +11,6 @@
 # end
 
 # These inflection rules are supported but not enabled by default:
-# ActiveSupport::Inflector.inflections(:en) do |inflect|
-#   inflect.acronym "RESTful"
-# end
+ActiveSupport::Inflector.inflections(:en) do |inflect|
+  inflect.irregular 'record_of_work', 'records_of_work'
+end

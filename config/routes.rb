@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :record_of_works
+  resources :reports
   resources :employees
   resources :job_groups
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

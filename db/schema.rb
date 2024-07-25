@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_25_195928) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_25_204618) do
   create_table "employees", force: :cascade do |t|
     t.integer "job_group_id"
     t.datetime "created_at", null: false
@@ -22,6 +22,22 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_25_195928) do
   create_table "job_groups", force: :cascade do |t|
     t.integer "rate"
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "record_of_works", force: :cascade do |t|
+    t.integer "hours"
+    t.integer "report_id"
+    t.integer "employee_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["employee_id"], name: "index_record_of_works_on_employee_id"
+    t.index ["report_id"], name: "index_record_of_works_on_report_id"
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.string "filename"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
