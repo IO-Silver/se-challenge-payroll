@@ -26,14 +26,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_25_204618) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "record_of_works", force: :cascade do |t|
+  create_table "records_of_work", force: :cascade do |t|
     t.integer "hours"
+    t.date "date"
+    t.date "pay_period_start"
+    t.date "pay_period_end"
     t.integer "report_id"
     t.integer "employee_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["employee_id"], name: "index_record_of_works_on_employee_id"
-    t.index ["report_id"], name: "index_record_of_works_on_report_id"
+    t.index ["employee_id"], name: "index_records_of_work_on_employee_id"
+    t.index ["report_id"], name: "index_records_of_work_on_report_id"
   end
 
   create_table "reports", force: :cascade do |t|

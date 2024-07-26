@@ -1,7 +1,10 @@
 class CreateRecordsOfWork < ActiveRecord::Migration[7.1]
   def change
-    create_table :record_of_works do |t|
+    create_table :records_of_work do |t|
       t.integer :hours
+      t.date :date
+      t.date :pay_period_start
+      t.date :pay_period_end
       t.belongs_to :report
       t.belongs_to :employee
 
