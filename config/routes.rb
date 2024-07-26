@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :record_of_works
+  resources :records_of_work
   resources :reports
   resources :employees
   resources :job_groups
