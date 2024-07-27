@@ -1,6 +1,6 @@
 require "test_helper"
 
-class RecordOfWorksControllerTest < ActionDispatch::IntegrationTest
+class RecordsOfWorkControllerTest < ActionDispatch::IntegrationTest
   setup do
     @record_of_work = records_of_work(:one)
   end

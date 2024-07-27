@@ -1,4 +1,6 @@
 class ReportsController < ApplicationController
+  include ProcessWorkReport
+
   before_action :set_report, only: %i[ show update destroy ]
 
   # GET /reports
@@ -15,9 +17,10 @@ class ReportsController < ApplicationController
 
   # POST /reports
   def create
-    @report = Report.new(report_params)
+    @report = Report.create(filename: report_params.original_filename)
 
     if @report.save
+      ProcessWorkReport.process_report(@report, report_params)
       render json: @report, status: :created, location: @report
     else
       render json: @report.errors, status: :unprocessable_entity
@@ -41,11 +44,11 @@ class ReportsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_report
-      @report = Report.find(params[:id])
+      @report = Report.find_by(filename: report_params.original_filename)
     end
 
     # Only allow a list of trusted parameters through.
     def report_params
-      params.require(:report).permit(:filename)
+      params.require(:file)
     end
 end

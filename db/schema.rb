@@ -10,24 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_25_204618) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_27_222110) do
   create_table "employees", force: :cascade do |t|
-    t.integer "job_group_id"
+    t.string "job_group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["id"], name: "index_employees_on_id", unique: true
     t.index ["job_group_id"], name: "index_employees_on_job_group_id"
   end
 
-  create_table "job_groups", force: :cascade do |t|
+  create_table "job_groups", primary_key: "name", id: :string, force: :cascade do |t|
     t.integer "rate"
-    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "records_of_work", force: :cascade do |t|
-    t.integer "hours"
+    t.float "hours"
     t.date "date"
     t.date "pay_period_start"
     t.date "pay_period_end"
@@ -45,4 +44,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_25_204618) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "employees", "job_groups", primary_key: "name"
 end
