@@ -1,11 +1,11 @@
 class RecordsOfWorkController < ApplicationController
+include Serializers::RecordOfWorkSerializer
+
   before_action :set_record_of_work, only: %i[ show update destroy ]
 
   # GET /records_of_work
   def index
-    @records_of_work = RecordOfWork.all
-
-    render json: @records_of_work
+    render json: Serializers::RecordOfWorkSerializer.serialize
   end
 
   # GET /records_of_work/1
