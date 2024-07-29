@@ -161,11 +161,7 @@ gem install rails -v 7.1.3.4
 sudo apt install sqlite3
 ```
 
-After you install ruby, rails, and sqlite3, call
-```
-bundle install
-```
-to set up your local gem installation
+After you install ruby, rails, and sqlite3, call `bundle install` to set up your local gem installation
 
 ### Testing the application
 To start the server on localhost:3000, run: `rails s`
