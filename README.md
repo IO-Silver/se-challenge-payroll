@@ -162,12 +162,16 @@ sudo apt install sqlite3
 ```
 
 After you install ruby, rails, and sqlite3, call
-```bundle install```
+```
+bundle install
+```
 to set up your local gem installation
 
 ### Testing the application
 To start the server on localhost:3000, run:
-```rails s```
+```
+rails s
+```
 
 One it's up and running, you can use an application like Postman (or cURL if you're braver than I am) to send the two required requests.
 * To upload a file, send a POST request with a parameter of `file` containing the time-report-x.csv to `http://localhost:3000/reports`
