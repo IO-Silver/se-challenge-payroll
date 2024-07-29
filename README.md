@@ -167,8 +167,8 @@ After you install ruby, rails, and sqlite3, call `bundle install` to set up your
 To start the server on localhost:3000, run: `rails s`
 
 One it's up and running, you can use an application like Postman (or cURL if you're braver than I am) to send the two required requests.
-To upload a file, send a POST request with a parameter of `file` containing the time-report-x.csv to `http://localhost:3000/reports`
-To receive the payrollReport object, send a GET call to `http://localhost:3000/records_of_work`
+* To upload a file, send a POST request with a parameter of `file` containing the time-report-x.csv to `http://localhost:3000/reports`
+* To receive the payrollReport object, send a GET call to `http://localhost:3000/records_of_work`
 That's it!
 
 # Challenge Answers
