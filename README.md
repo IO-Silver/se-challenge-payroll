@@ -131,7 +131,62 @@ Please commit the following to this `README.md`:
    - If this application was destined for a production environment, what would you add or change?
    - What compromises did you have to make as a result of the time constraints of this challenge?
 
-## Submission Instructions
+# Installation Instructions
+Note: These instructions work for MacOS/Linux machines, but may not work on a Windows PC.
+
+## Install Ruby on Rails
+### If you have Brew:
+```
+brew update
+brew install ruby-build
+brew install rbenv
+
+rbenv install 3.3.4
+rbenv global 3.3.4
+
+gem install rails -v 7.1.3.4
+
+brew install sqlite3
+```
+
+### If you have apt:
+```
+sudo apt install rbenv
+
+rbenv install 3.3.4
+rbenv global 3.3.4
+
+gem install rails -v 7.1.3.4
+
+sudo apt install sqlite3
+```
+
+After you install ruby, rails, and sqlite3, call
+```
+bundle install
+```
+to set up your local gem installation
+
+### Testing the application
+To start the server on localhost:3000, run: `rails s`
+
+One it's up and running, you can use an application like Postman (or cURL if you're braver than I am) to send the two required requests.
+To upload a file, send a POST request with a parameter of `file` containing the time-report-x.csv to `http://localhost:3000/reports`
+To receive the payrollReport object, send a GET call to `http://localhost:3000/records_of_work`
+That's it!
+
+# Challenge Answers
+## How did you test that your implementation was correct?
+I tested my implementation by uploading the given file, time-report-42.csv, and verifying all the recorded work amounts aligned.  I also created my own file, time-report-1.csv, to test the same.  I also attempted to upload the same file, correctly receiving an error that the name overlapped.
+
+## If this application was destined for a production environment, what would you add or change?
+I would add several things: a more complete integration test suite, the ability to pass the given CSV file to its parser in batches (for dealing with very large files), more security in the requests (or any, really), and actually storing the given files in a cloud-based solution like AWS or Cloudinary to name just a few.
+
+## What compromises did you have to make as a result of the time constraints of this challenge?
+The biggest compromise I made was forgoing a more complete test suite, as I strongly believe the code wouldn't be shippable without it, but I would have used more time than fairly allowed to write it.  Other than the tests, I would have aimed to make some of the aforementioned improvements for scaling, security, and data stability if I had more time.
+
+
+# Submission Instructions
 
 1. Clone the repository.
 1. Complete your project as described above within your local repository.
@@ -139,7 +194,7 @@ Please commit the following to this `README.md`:
 1. Create a git bundle: `git bundle create your_name.bundle --all`
 1. Email the bundle file to [dev.careers@waveapps.com](dev.careers@waveapps.com) and CC the recruiter you have been in contact with.
 
-## Evaluation
+# Evaluation
 
 Evaluation of your submission will be based on the following criteria.
 
